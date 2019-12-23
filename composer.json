@@ -1,5 +1,5 @@
 {
-    "name": "akramfares/rundeck-sdk-php",
+    "name": "deity-bram/rundeck-sdk-php",
     "type": "library",
     "description": "PHP SDK for Rundeck web API",
     "keywords": [
