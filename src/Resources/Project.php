@@ -10,7 +10,6 @@ use Rundeck\HttpClient;
  */
 class Project extends Resource
 {
-
     /**
      * @var array
      */
@@ -23,6 +22,20 @@ class Project extends Resource
         "export" => ["xml"],
         "history" => ["xml"],
     ];
+
+
+    public function create($name,$description){
+        $data =  <<<EOT
+<project>
+    <name>$name</name>
+    <config>
+        <property key="description" value="$description"/>
+    </config>
+</project>
+EOT;
+        $response = $this->client->post('/projects/',$data, $alt);
+        return $response;
+    }
 
     /**
      * @param HttpClient $client
