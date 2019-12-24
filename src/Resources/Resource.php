@@ -35,7 +35,8 @@ abstract class Resource
             if (!in_array($alt, $this->actions[$action])) {
                 throw new \Exception("Invalid Format: ". $alt);
             }
-            $response = $this->client->get('/'. strtolower(get_class($this)) .'/'.$this->name. '/' .$action, $alt);
+            $parts = explode('\\',get_class($this));
+            $response = $this->client->get('/'. strtolower(end($parts)) .'/'.$this->name. '/' .$action, $alt);
             return $response;
         } else {
             throw new \Exception("Invalid Action: ". $action);
