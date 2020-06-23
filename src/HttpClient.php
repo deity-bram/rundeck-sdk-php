@@ -125,6 +125,7 @@ class HttpClient
             case 400 : return new InvallidRequestException($message);
             case 404 : return new ResourceNotFoundException($message);
             case 409 : return new ResoureAlreadyExistsException($message);
+            default : return $exception;
         }
     }
 }
